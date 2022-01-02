@@ -1,0 +1,228 @@
+{
+	"info": {
+		"_postman_id": "776c4eb6-446e-420a-b07a-ad6fcff73e32",
+		"name": "etitle Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AUTHENTICATION",
+			"item": [
+				{
+					"name": "LOGIN",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"haidang06eee3336@gmail.com\",\n    \"password\": \"123\"\n}\n"
+						},
+						"url": {
+							"raw": "http://localhost:8888/authenticate/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"authenticate",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "REGISTER USER",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"firstName\": \"Dang\",\n\t\"lastName\": \"Nguyen\",\n\t\"mobile\": \"+84989302594\",\n\t\"ssn\": \"23234234\",\n\t\"address\": {\n\t\t\"addressLine1\": \"407 N 6th st\",\n\t\t\"city\": \"Fairfield\",\n\t\t\"state\": \"IA\",\n\t\t\"country\": \"Jefferson\",\n\t\t\"zipcode\": 52557\n\t},\n    \"email\":\"haidang06eee3336@gmail.com\",\n    \"password\": \"123\"\n}\n"
+						},
+						"url": {
+							"raw": "http://localhost:8888/authenticate/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"authenticate",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "REGISTER ORG USER",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"firstName\": \"Dang\",\n\t\"lastName\": \"Nguyen\",\n\t\"mobile\": \"+84989302594\",\n\t\"ssn\": \"23234234\",\n\t\"address\": {\n\t\t\"addressLine1\": \"407 N 6th st\",\n\t\t\"city\": \"Fairfield\",\n\t\t\"state\": \"IA\",\n\t\t\"country\": \"Jefferson\",\n\t\t\"zipcode\": 52557\n\t},\n    \"email\":\"haidang06eee3336@gmail.com\",\n    \"password\": \"123\"\n}\n"
+						},
+						"url": {
+							"raw": "http://localhost:8888/authenticate/register_org",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"authenticate",
+								"register_org"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CARS",
+			"item": [
+				{
+					"name": "GET CARS",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8888/cars",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"cars"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADD CARS",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fcn\": \"createCar\",\n    \"peers\": [\"peer0.org1.example.com\",\"peer0.org2.example.com\"],\n    \"chaincodeName\":\"fabcar\",\n    \"channelName\": \"mychannel\",\n   \"args\": [\"vinid\",\"Mitsubisihi\",\"Pajero\",\"black\",\"Qatawneh\",\"70234\",\"30000\",\"2016\",\"excellent\",\"6\",\"automatic\",\"mid-size\",\"gas\",\"clean\", \"4wd\", \"suv\",\"ia\",\"vinid\"]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8888/cars/fabcar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"cars",
+								"fabcar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "REGISTER CAR",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"vin\": \"VỊN-678\",\r\n    \"make\": \"Mitsubisihi\",\r\n    \"model\": \"Pajero\",\r\n    \"color\": \"black\",\r\n    \"owner\": \"1234-234-54\",\r\n    \"miles\": \"100000\",\r\n    \"price\": \"30000\",\r\n    \"year\": \"2016\",\r\n    \"condition\": \"excellent\",\r\n    \"cylinders\": \"6\",\r\n    \"transmision\": \"automatic\",\r\n    \"size\": \"mid-size\",\r\n    \"fuel\": \"gas\",\r\n    \"title\": \"clean\",\r\n    \"vehicle\": \"4wd\",\r\n    \"type\": \"suv\",\r\n    \"state\": \"ia\",\r\n    \"status\": \"\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8888/cars",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"cars"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE CAR",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"vin\": \"VIN-6781\",\r\n    \"make\": \"Mitsubisihi\",\r\n    \"model\": \"Pajero\",\r\n    \"color\": \"GREEN\",\r\n    \"owner\": \"9999-999-99\",\r\n    \"miles\": \"100000\",\r\n    \"price\": \"30000\",\r\n    \"year\": \"2016\",\r\n    \"condition\": \"excellent\",\r\n    \"cylinders\": \"6\",\r\n    \"transmision\": \"automatic\",\r\n    \"size\": \"mid-size\",\r\n    \"fuel\": \"gas\",\r\n    \"title\": \"clean\",\r\n    \"vehicle\": \"4wd\",\r\n    \"type\": \"suv\",\r\n    \"state\": \"ia\",\r\n    \"status\": \"\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8888/cars/VỊN-678",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"cars",
+								"VỊN-678"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
